@@ -7,13 +7,14 @@ class App extends Component {
   state = {
     tiles:[
       '/img/2397188.png',
+      '/img/1236363.png',
       'https://image.flaticon.com/icons/png/512/573/premium/573517.png',
       'https://image.flaticon.com/icons/png/512/2367/2367127.png',
       'https://image.flaticon.com/icons/png/512/2367/2367128.png',
       'https://image.flaticon.com/icons/png/512/2367/2367130.png',
       'https://image.flaticon.com/icons/png/512/1031/1031287.png',
-      'https://image.flaticon.com/icons/png/512/2397/2397188.png',
-      'https://image.flaticon.com/icons/png/512/1236/1236363.png',
+      // 'https://image.flaticon.com/icons/png/512/2397/2397188.png',
+      // 'https://image.flaticon.com/icons/png/512/1236/1236363.png',
       'https://image.flaticon.com/icons/png/512/218/218153.png',
       'https://image.flaticon.com/icons/png/512/218/218151.png',
 
@@ -24,7 +25,7 @@ class App extends Component {
   };
 
   shuffled = [];
-  
+
   shuffleTiles = () =>{
 
 
@@ -35,7 +36,7 @@ class App extends Component {
   ];
 
   handleTileClick = (evt) =>{
- 
+
     const clickedTile =evt.target.src;
 
     if(this.clickedTiles.includes(clickedTile)){
@@ -57,10 +58,10 @@ class App extends Component {
     this.clickedTiles.push(clickedTile);
     // console.log('score: ', this.state.score);
 
-    
-    
 
-    
+
+
+
     const shuffled = this.state.tiles.sort(()=> 0.5 - Math.random
     ());
     this.setState({tiles:shuffled,
@@ -68,7 +69,7 @@ class App extends Component {
     topScore: topScore
 
 });
-    
+
     // this.state.tiles.sort(()=> 0.5 - Math.random()) });
 
   }
@@ -77,10 +78,10 @@ class App extends Component {
     return (
       <div className="App">
         <Score score={this.state.score} topScore ={0}/>
-        {this.state.tiles.map((tile, idx) => <Thumbnail 
+        {this.state.tiles.map((tile, idx) => <Thumbnail
        src={tile} key={idx} onClick={this.handleTileClick}
        />)}
-       
+
       </div>
     );
   }
